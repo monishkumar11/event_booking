@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text.css'/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--
+        -->        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script><!--
+        -->        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text.css'/><!--
+        -->        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><!--
+        -->       
+
+        <title>E-BOOKING</title>
+    </head>
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 80%;
+
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px ;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 21px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <nav class="navbar navbar-inverse" style="height: 820%; ">
+        <div class="container-fluid" style="padding: 1% ;font-size: 20px;">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#" style="font-size: 150%;">E-BOOKING</a>
+            </div>
+            
+        </div>
+    </nav>
+    <script>
+        function toAdmin() {
+        window.location.href = "{{ url_for('admin') }}";
+        }
+        function toLogin(){
+            window.location.href = "{{ url_for('login') }}" ;
+        }
+        function toTimeSlot(){
+            window.location.href = "{{ url_for('time_slot') }}";
+        }
+        function toSample(){
+            window.location.href = "{{ url_for('dashboard') }}";
+        }
+    </script>
+
+
+
+<center>
+
+    <div style="margin-top: 6%;width: 600px;background-color: whitesmoke;">
+
+        <div style="width: 500px;">
+            <form action="{{ url_for('admin') }}" method="get" >
+                <br>
+                <label>Date</label>
+                <input class="w3-input" type="date" name="date" required="">
+                <br>
+                <label>From Time</label>
+                <input class="w3-input" type="time" name="fromtime" required="">
+                <br>
+                <label>To Time</label>
+                <input class="w3-input" type="time" name="totime" required="">
+                <br>
+                <input type="submit" class="button">
+            </form>
+        </div>
+
+
+
+        <!--            </tr>
+        
+        
+                </table>-->
+    </div>
+</center>
+</body>
+
+</html>

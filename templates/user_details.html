@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>E-BOOKING</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text.css'/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+    <style>
+        /*          body{
+                    width: 100%;
+                    height: 100%;
+                    background-image: url('images/ration.jpg');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    opacity: 0.5px;
+                }*/
+        .profile{
+            margin-top: 5%;
+            width: 65%;
+            max-height: 100%;
+            min-height: 500px;
+            margin-bottom: 1%;
+            background-color: #F0F3F4 ;
+            box-shadow: 10px 10px 10px 10px;
+            border-radius: 10px;
+        }
+        .profile_photo{
+            background-color: green;
+            width: 200px;
+            height: 200px;
+            float: left;
+            margin-top: 15%;
+            margin-left: 5%;
+            border-radius: 10px;
+        }
+        .uder_details{
+            padding-top: 5%;
+            color: black;
+            float: left;
+            padding-left: 10%;
+            /*            width: 100*/
+
+        }
+        .pic{
+            height: 100%;
+            width: 100%;
+            border-radius: 10px;
+            border: 2px  solid black;
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 80%;
+
+        }
+        td{
+            font-size: 18px;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px ;
+        }
+        tr{
+            background-color: #dddddd;
+        }
+
+    </style>
+
+   <!--<%
+    %>-->
+    <body>
+        <nav class="navbar navbar-inverse" style="height: 820%; ">
+        <div class="container-fluid" style="padding: 1% ;font-size: 20px;">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#" style="font-size: 150%;">E-BOOKING</a>
+            </div>
+            <ul class="nav navbar-nav" >
+                <li ><a onclick="toSample()">Booked Details</a></li>
+                <li class="active"><a onclick="toUserDetails()" >Profile</a></li>
+                <li><a onclick="toSample()">Ticket Bokking</a></li>
+                <li><a onclick="toSample()">View Events</a></li>
+                <li><a onclick="toSample()">Payment</a></li>
+                <li><a onclick="toLogin()" method="get">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+        function toUserDetails() {
+        window.location.href = "{{ url_for('user_details') }}";
+        }
+        function toLogin(){
+            window.location.href = "{{ url_for('login') }}" ;
+        }
+        function toSample(){
+            window.location.href = "{{ url_for('dashboard') }}";
+        }
+    </script>
+    <center>
+        <!--        <div class="profile">
+
+
+        <% //    while (rs.next()) {
+        %>-->
+
+        <div style="max-height: 300px; width: 800px; margin-top: 50px;padding: 9px 19px;" >
+
+            <table id="t01" style="border-radius: 5px;">
+                <tr>
+                    <!--  <th style="text-align: center" >Student Id</th> -->
+                    <th style="text-align: center;padding-top:  15px;padding-bottom: 15px;font-size: 30px; " ><b>MY Profile</b></th>
+                    <!--                    <th style="text-align: center" >ANSWER</th> -->
+
+
+
+
+                </tr>
+            <!--    <%          
+                    try {
+                        String card = "" + session.getAttribute("card");
+                        String query = "Select * from user_details where card='" + card + "'";
+                        PreparedStatement ps = con.prepareStatement(query);
+                        ResultSet rs = ps.executeQuery();
+
+                        while (rs.next()) {
+
+                %>-->
+
+                <tr>         <td style="text-align: left; padding-top:  15px;padding-bottom: 15px;padding-left: 30px;"><b>Name:</b><!--<%=rs.getString("name")%>--></td>
+                <tr>         <td style="text-align: left;padding-top:  15px;padding-bottom: 15px;padding-left: 30px; "><b>Card No:</b><!--<%=rs.getString("card")%>--></td>
+                <tr>         <td style="text-align: left;padding-top:  15px;padding-bottom: 15px;padding-left: 30px; "><b>Email:</b><!--<%=rs.getString("email")%>--></td>
+                <tr>         <td style="text-align: left;padding-top:  15px;padding-bottom: 15px;padding-left: 30px;"><b>Phone:</b><!--<%=rs.getString("phone")%>--></td>
+                <tr>         <td style="text-align: left;padding-top:  15px;padding-bottom: 15px;padding-left: 30px; "><b>City:</b><!--<%=rs.getString("adddress")%>--></td>
+                <!--       <td style="text-align: center;font-family: times "><a href="view_chart.jsp?question=<%//=rs1.getString("question")%>">Click Here</a></td>
+
+                    <%
+                            }
+                        } catch (Exception e) {
+                            JOptionPane.showMessageDialog(null, e);
+                        }
+
+                    %>
+                    -->
+                </tr>
+
+            </table>
+        </div>
+    </center>
+        <!--        
+
+    
+    <% //            }
+//        }catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, e);
+//        }
+%></div>-->
+
+</body>
+</html>
