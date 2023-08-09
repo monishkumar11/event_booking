@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text.css'/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+
+         <title>E-BOOKING</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: whitesmoke;
+                width: 100%;
+                height: 100%;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            /* Add padding to containers 
+            .container {
+                padding: 16px;
+                background-color: white;
+                width: 50%;
+            }*/
+
+            /* Full-width input fields */
+            input[type=text], input[type=password] {
+                width: 100%;
+                padding: 15px;
+                margin: 5px 0 22px 0;
+                display: inline-block;
+                border: none;
+                background: #f1f1f1;
+            }
+
+            input[type=text]:focus, input[type=password]:focus {
+                background-color: #ddd;
+                outline: none;
+            }
+
+            /* Overwrite default styles of hr */
+            hr {
+                border: 1px solid #f1f1f1;
+                margin-bottom: 25px;
+            }
+
+            /* Set a style for the submit button */
+            .registerbtn {
+                background-color: #04AA6D;
+                color: white;
+                padding: 16px 20px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                opacity: 0.9;
+                font-weight: bold;
+                /*            font-size: 20px;*/
+            }
+
+            .registerbtn:hover {
+                opacity: 1;
+            }
+
+            /* Add a blue text color to links */
+            a {
+                color: dodgerblue;
+            }
+
+            /* Set a grey background color and center the text of the "sign in" section */
+            .signin {
+                background-color: #f1f1f1;
+                text-align: center;
+            }
+            .icon {
+                padding: 10px;
+                background: dodgerblue;
+                color: white;
+                min-width: 50px;
+                text-align: center;
+            }
+            .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.box {
+    width: 600px;
+    height: 200px;
+    background-color: #ffffff;
+    margin: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    cursor: pointer;
+}
+
+.box img {
+    max-width: 100%;
+    max-height: 100%;
+}
+        </style>
+    
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse" style="height: 820%; ">
+            <div class="container-fluid" style="padding: 1% ;font-size: 20px;">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" style="font-size: 150%;">event</a>
+                </div>
+                <ul class="nav navbar-nav" >
+                
+                     <li><a onclick="toEvent()"><-- Back</a></li>
+    
+                </ul>
+            </div>
+        </nav>
+        <center><h1>Select Timming </h1></center>
+        <script>
+            function toEvent() {
+                window.location.href="{{ url_for('add_eve', table_name='chennai') }}";
+            }
+            function toAdmin() {
+            window.location.href = "{{ url_for('admin') }}";
+            }
+            function toLogin(){
+                window.location.href = "{{ url_for('login') }}" ;
+            }
+            function toAddEvents(){
+                window.location.href = "{{ url_for('add_events') }}" ;
+            }
+            function toTimeSlot(){
+            window.location.href = "{{ url_for('time_slot') }}";
+        }
+            function toSeatsAvaliable(){
+                window.location.href = "{{ url_for('seats_avaliable') }}";
+            }
+        </script>
+        
+    <center>
+        <h1> <b>Add Events</b></h1>
+        <form action="{{ url_for('time_slot') }}">
+            <div class="container" style="border-radius: 5%;">
+
+                
+                <br><br>
+                <!--    <p>Please fill in this form to create an account.</p>-->
+                <hr><hr>
+                <div></div>
+                <label for="address"><b>Address</b></label>
+                <input type="text" placeholder="address" value="address" name="address" id="address" required>
+                
+                <label for="event host"><b>Event host</b></label>
+                <input type="text" placeholder="event host" name="event host" id="event host" required>
+
+
+                <hr>
+                <button type="submit" class="registerbtn">Add</button>
+
+            </div>
+        </form>
+    </center>
+</body>
+</html>

@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text.css'/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+
+         <title>E-BOOKING</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: whitesmoke;
+                width: 100%;
+                height: 100%;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            /* Add padding to containers 
+            .container {
+                padding: 16px;
+                background-color: white;
+                width: 50%;
+            }*/
+
+            /* Full-width input fields */
+            input[type=text], input[type=password] {
+                width: 100%;
+                padding: 15px;
+                margin: 5px 0 22px 0;
+                display: inline-block;
+                border: none;
+                background: #f1f1f1;
+            }
+
+            input[type=text]:focus, input[type=password]:focus {
+                background-color: #ddd;
+                outline: none;
+            }
+
+            /* Overwrite default styles of hr */
+            hr {
+                border: 1px solid #f1f1f1;
+                margin-bottom: 25px;
+            }
+
+            /* Set a style for the submit button */
+            .registerbtn {
+                background-color: #04AA6D;
+                color: white;
+                padding: 16px 20px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                opacity: 0.9;
+                font-weight: bold;
+                /*            font-size: 20px;*/
+            }
+
+            .registerbtn:hover {
+                opacity: 1;
+            }
+
+            /* Add a blue text color to links */
+            a {
+                color: dodgerblue;
+            }
+
+            /* Set a grey background color and center the text of the "sign in" section */
+            .signin {
+                background-color: #f1f1f1;
+                text-align: center;
+            }
+            .icon {
+                padding: 10px;
+                background: dodgerblue;
+                color: white;
+                min-width: 50px;
+                text-align: center;
+            }
+            .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.box {
+    width: 600px;
+    height: 200px;
+    background-color: #ffffff;
+    margin: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    cursor: pointer;
+}
+
+.box img {
+    max-width: 100%;
+    max-height: 100%;
+}
+        </style>
+    
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse" style="height: 820%; ">
+            <div class="container-fluid" style="padding: 1% ;font-size: 20px;">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" style="font-size: 150%;">E-BOOKING</a>
+                </div>
+                <ul class="nav navbar-nav" >
+                    <li ><a onclick="toAdmin()">View Events</a></li>
+                    <li class="active" styles=""><a onclick="toAddEvents()">Add Events</a></li>
+                     <li><a onclick="toSeatsAvaliable()">Seats Avaliblity</a></li>
+                    <li><a onclick="toLogin()" method="get">Logout</a></li>
+    
+                </ul>
+            </div>
+        </nav>
+        <center><h1>Select City </h1></center>
+        <script>
+            function toAdmin() {
+            window.location.href = "{{ url_for('admin') }}";
+            }
+            function toLogin(){
+                window.location.href = "{{ url_for('login') }}" ;
+            }
+            function toAddEvents(){
+                window.location.href = "{{ url_for('add_events') }}" ;
+            }
+            function toTimeSlot(){
+            window.location.href = "{{ url_for('time_slot') }}";
+        }
+            function toSeatsAvaliable(){
+                window.location.href = "{{ url_for('seats_avaliable') }}";
+            }
+        </script>
+        <div class="container">
+            <div class="box" onclick="toClick1()">
+                <img src="{{ url_for('static', filename='table1.jpg') }}" alt="Table 1">
+            </div>
+            <div class="box" onclick="toClick2()">
+                <img src="{{ url_for('static', filename='table2.jpg') }}" alt="Table 2">
+            </div>
+            <div class="box" onclick="toClick3()">
+                <img src="{{ url_for('static', filename='table3.jpg') }}" alt="Table 3">
+            </div>
+            <div class="box" onclick="toClick4()">
+                <img src="{{ url_for('static', filename='table4.jpg') }}" alt="Table 4">
+            </div>
+            <div class="box" onclick="toClick5()">
+                <img src="{{ url_for('static', filename='table5.jpg') }}" alt="Table 5">
+            </div>
+            <div class="box" onclick="toClick6()">
+                <img src="{{ url_for('static', filename='table6.jpg') }}" alt="Table 6">
+            </div>
+            <!-- Repeat the above code for other boxes and images -->
+        </div>
+        <script>
+            function toClick1() {
+                window.location.href="{{ url_for('add_eve', table_name='chennai') }}";
+            }
+            function toClick2() {
+                window.location.href="{{ url_for('add_eve', table_name='coimbatore') }}";
+            }
+            function toClick3() {
+                window.location.href="{{ url_for('add_eve', table_name='madurai') }}";
+            }
+            function toClick4() {
+                window.location.href="{{ url_for('add_eve', table_name='salem') }}";
+            }
+            function toClick5() {
+                window.location.href="{{ url_for('add_eve', table_name='trichy') }}";
+            }
+            function toClick6() {
+                window.location.href="{{ url_for('add_eve', table_name='vellor') }}";
+            }
+            
+        </script>
+        <!--<script>
+            function toClick1() {
+                window.location.href="{{ url_for('table_details', table_id=1) }}";
+            }
+            function toClick2() {
+                window.location.href="{{ url_for('table_details', table_id=2) }}";
+            }
+            function toClick3() {
+                window.location.href="{{ url_for('table_details', table_id=3) }}";
+            }
+            function toClick4() {
+                window.location.href="{{ url_for('table_details', table_id=4) }}";
+            }
+            function toClick5() {
+                window.location.href="{{ url_for('table_details', table_id=5) }}";
+            }
+            function toClick6() {
+                window.location.href="{{ url_for('table_details', table_id=6) }}";
+            }
+            
+        </script>-->
+    <center>
+    <!--    <form action="{{ url_for('time_slot') }}">
+            <div class="container" style="border-radius: 5%;">
+
+                <h1> <b>Add Events</b></h1>
+
+                <!--    <p>Please fill in this form to create an account.</p>
+                <hr>
+                
+                <label for="place"><b>Place Name</b></label>
+                <input type="text" placeholder="" value="place" name="place" id="place" required>
+                
+                <label for="event"><b>Event name</b></label>
+                <input type="text" placeholder="event" name="event" id="event" required>
+
+
+                <hr>
+                <div class="file-drop-area">
+                    <span class="choose-file-button">Choose files</span>
+                    <span class="file-message">or drag and drop files here</span>
+                    <input class="file-input"  id="myFile"  type="file"name="file" multiple  onchange="myFunction()">
+                </div>
+                <button type="submit" class="registerbtn">Add</button>
+
+            </div>
+        </form>-->
+    </center>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myFile");
+            var txt = "";
+            if ('files' in x) {
+                if (x.files.length == 0) {
+                    txt = "No Files Choosen";
+                } else {
+                    for (var i = 0; i < x.files.length; i++) {
+//                        txt += "<br><strong>" + (i + 1) + ". file</strong><br>";
+                        var file = x.files[i];
+                        if ('name' in file) {
+                            txt += "File Name: " + file.name + "<br><br>";
+                        }
+                        if ('size' in file) {
+                            txt += "Size: " + file.size + " bytes <br>";
+                        }
+                    }
+                }
+            } else {
+                if (x.value == "") {
+                    txt += "No Files Choosen";
+                } else {
+                    txt += "The files property is not supported by your browser!";
+                    txt += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead. 
+                }
+            }
+            document.getElementById("demo").innerHTML = txt;
+        }
+    </script>
+</body>
+</html>
